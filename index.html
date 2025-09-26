@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Africa Disrupt Summit 1.0 — Breaking the Old, Building the Bold | Oct 2, 2025</title>
+    <meta name="description" content="Join 1000+ founders, VCs and leaders for Africa Disrupt Summit 1.0 (Oct 2, 2025, virtual). Harsh conversations, practical playbooks, global networks. Register now.">
+    <style>
+        /* CSS Reset and Base Styles */
+        :root {
+            --charcoal: #1a1a1a;
+            --electric-amber: #FF8C00;
+            --deep-teal: #008080;
+            --white: #ffffff;
+            --gray-light: #f5f5f5;
+            --gray-medium: #666666;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+            background-color: var(--charcoal);
+            color: var(--white);
+            line-height: 1.6;
+            font-size: 16px;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', 'Arial Black', sans-serif;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+        
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+        }
+        
+        h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+        }
+        
+        h3 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+        }
+        
+        p {
+            margin-bottom: 1rem;
+        }
+        
+        a {
+            color: var(--electric-amber);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        a:hover {
+            color: var(--white);
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background-color: var(--electric-amber);
+            color: var(--charcoal);
+            font-weight: 700;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+        
+        .btn:hover {
+            background-color: var(--white);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 140, 0, 0.4);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid var(--electric-amber);
+            color: var(--electric-amber);
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--electric-amber);
+            color: var(--charcoal);
+        }
+        
+        section {
+            padding: 4rem 0;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        /* Header Styles */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(26, 26, 26, 0.95);
+            z-index: 1000;
+            padding: 1rem 0;
+            backdrop-filter: blur(10px);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--white);
+        }
+        
+        .logo span {
+            color: var(--electric-amber);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav li {
+            margin-left: 2rem;
+        }
+        
+        nav a {
+            color: var(--white);
+            font-weight: 600;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(26, 26, 26, 0.9), rgba(26, 26, 26, 0.9)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%231a1a1a"/><path d="M0,0 L100,100 M100,0 L0,100" stroke="%23333" stroke-width="1"/></svg>');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            max-width: 900px;
+            padding: 0 1rem;
+        }
+        
+        .hero h1 {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        
+        .glitch {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .glitch::before,
+        .glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .glitch::before {
+            left: 2px;
+            text-shadow: -2px 0 red;
+            clip: rect(44px, 450px, 56px, 0);
+            animation: glitch-anim 5s infinite linear alternate-reverse;
+        }
+        
+        .glitch::after {
+            left: -2px;
+            text-shadow: -2px 0 blue;
+            clip: rect(44px, 450px, 56px, 0);
+            animation: glitch-anim2 5s infinite linear alternate-reverse;
+        }
+        
+        @keyframes glitch-anim {
+            0% { clip: rect(42px, 9999px, 44px, 0); }
+            5% { clip: rect(12px, 9999px, 59px, 0); }
+            10% { clip: rect(48px, 9999px, 29px, 0); }
+            15% { clip: rect(42px, 9999px, 73px, 0); }
+            20% { clip: rect(63px, 9999px, 27px, 0); }
+            25% { clip: rect(34px, 9999px, 55px, 0); }
+            30% { clip: rect(86px, 9999px, 73px, 0); }
+            35% { clip: rect(20px, 9999px, 20px, 0); }
+            40% { clip: rect(26px, 9999px, 60px, 0); }
+            45% { clip: rect(25px, 9999px, 66px, 0); }
+            50% { clip: rect(57px, 9999px, 98px, 0); }
+            55% { clip: rect(5px, 9999px, 46px, 0); }
+            60% { clip: rect(82px, 9999px, 31px, 0); }
+            65% { clip: rect(54px, 9999px, 27px, 0); }
+            70% { clip: rect(28px, 9999px, 99px, 0); }
+            75% { clip: rect(45px, 9999px, 69px, 0); }
+            80% { clip: rect(23px, 9999px, 85px, 0); }
+            85% { clip: rect(54px, 9999px, 84px, 0); }
+            90% { clip: rect(45px, 9999px, 47px, 0); }
+            95% { clip: rect(37px, 9999px, 20px, 0); }
+            100% { clip: rect(73px, 9999px, 99px, 0); }
+        }
+        
+        @keyframes glitch-anim2 {
+            0% { clip: rect(65px, 9999px, 100px, 0); }
+            5% { clip: rect(52px, 9999px, 74px, 0); }
+            10% { clip: rect(79px, 9999px, 85px, 0); }
+            15% { clip: rect(75px, 9999px, 5px, 0); }
+            20% { clip: rect(67px, 9999px, 61px, 0); }
+            25% { clip: rect(14px, 9999px, 79px, 0); }
+            30% { clip: rect(1px, 9999px, 66px, 0); }
+            35% { clip: rect(86px, 9999px, 30px, 0); }
+            40% { clip: rect(23px, 9999px, 98px, 0); }
+            45% { clip: rect(85px, 9999px, 72px, 0); }
+            50% { clip: rect(71px, 9999px, 75px, 0); }
+            55% { clip: rect(2px, 9999px, 48px, 0); }
+            60% { clip: rect(30px, 9999px, 16px, 0); }
+            65% { clip: rect(59px, 9999px, 50px, 0); }
+            70% { clip: rect(41px, 9999px, 62px, 0); }
+            75% { clip: rect(2px, 9999px, 82px, 0); }
+            80% { clip: rect(47px, 9999px, 73px, 0); }
+            85% { clip: rect(3px, 9999px, 27px, 0); }
+            90% { clip: rect(26px, 9999px, 55px, 0); }
+            95% { clip: rect(42px, 9999px, 97px, 0); }
+            100% { clip: rect(38px, 9999px, 49px, 0); }
+        }
+        
+        .hero-subhead {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .countdown-item {
+            text-align: center;
+        }
+        
+        .countdown-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--electric-amber);
+            display: block;
+        }
+        
+        .countdown-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* Stats Section */
+        .stats {
+            background-color: var(--deep-teal);
+            padding: 2rem 0;
+        }
+        
+        .stats-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 1rem;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            display: block;
+            color: var(--electric-amber);
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        /* Why Attend Section */
+        .why-attend {
+            background-color: var(--charcoal);
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .benefit-card {
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--electric-amber);
+        }
+        
+        .benefit-card h3 {
+            color: var(--electric-amber);
+            margin-bottom: 1rem;
+        }
+        
+        /* Speakers Section */
+        .speakers {
+            background-color: #222;
+        }
+        
+        .speakers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .speaker-card {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        
+        .speaker-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .speaker-image {
+            width: 100%;
+            height: 250px;
+            background-color: var(--gray-medium);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray-light);
+        }
+        
+        .speaker-info {
+            padding: 1.5rem;
+        }
+        
+        .speaker-name {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .speaker-role {
+            color: var(--electric-amber);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .speaker-session {
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            color: var(--gray-light);
+        }
+        
+        /* Agenda Section */
+        .agenda {
+            background-color: var(--charcoal);
+        }
+        
+        .agenda-highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .agenda-item {
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+        
+        .agenda-time {
+            color: var(--electric-amber);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .agenda-type {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            background-color: var(--deep-teal);
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* Registration Section */
+        .registration {
+            background-color: #222;
+            padding: 4rem 0;
+        }
+        
+        .registration-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 8px;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--gray-medium);
+            border-radius: 4px;
+            color: var(--white);
+            font-size: 1rem;
+        }
+        
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--electric-amber);
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .form-row .form-group {
+            flex: 1;
+        }
+        
+        /* Partners Section */
+        .partners {
+            background-color: var(--charcoal);
+            padding: 3rem 0;
+        }
+        
+        .partners-grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .partner-logo {
+            height: 60px;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+        
+        .partner-logo:hover {
+            opacity: 1;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #111;
+            padding: 3rem 0 1rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h3 {
+            color: var(--electric-amber);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-links a {
+            color: var(--gray-light);
+        }
+        
+        .footer-links a:hover {
+            color: var(--electric-amber);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-icon {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: var(--gray-medium);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            background-color: var(--electric-amber);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid var(--gray-medium);
+            color: var(--gray-medium);
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--charcoal);
+                flex-direction: column;
+                padding: 1rem 0;
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav li {
+                margin: 0;
+                text-align: center;
+                padding: 0.5rem 0;
+            }
+            
+            .countdown {
+                gap: 0.5rem;
+            }
+            
+            .countdown-number {
+                font-size: 1.5rem;
+            }
+            
+            .stats-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">Africa <span>Disrupt</span></div>
+            <button class="mobile-menu-btn">☰</button>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#speakers">Speakers</a></li>
+                    <li><a href="#agenda">Agenda</a></li>
+                    <li><a href="#sponsors">Sponsors</a></li>
+                    <li><a href="#register" class="btn">Register Now</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>
+                <span class="glitch" data-text="BREAK THE OLD.">BREAK THE OLD.</span><br>
+                <span class="glitch" data-text="BUILD THE BOLD.">BUILD THE BOLD.</span>
+            </h1>
+            <p class="hero-subhead">Raw conversations. Actionable playbooks. Global networks — all in one virtual day.</p>
+            
+            <div class="countdown">
+                <div class="countdown-item">
+                    <span class="countdown-number" id="days">00</span>
+                    <span class="countdown-label">Days</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="hours">00</span>
+                    <span class="countdown-label">Hours</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="minutes">00</span>
+                    <span class="countdown-label">Minutes</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="seconds">00</span>
+                    <span class="countdown-label">Seconds</span>
+                </div>
+            </div>
+            
+            <a href="#register" class="btn">Register Now</a>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container stats-container">
+            <div class="stat-item">
+                <span class="stat-number">1000+</span>
+                <span class="stat-label">Disruptors</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">20+</span>
+                <span class="stat-label">Global Speakers</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">1</span>
+                <span class="stat-label">Virtual Day</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">10+</span>
+                <span class="stat-label">Action Sessions</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Attend Section -->
+    <section class="why-attend" id="about">
+        <div class="container">
+            <h2 class="text-center">Why Attend Africa Disrupt Summit 1.0</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <h3>Harsh, Raw Conversations</h3>
+                    <p>No surface-level platitudes — just real talk that sparks tangible change.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Global Network</h3>
+                    <p>Connect with 1000+ disruptors and investors from across the globe.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Battle-Tested Insights</h3>
+                    <p>Learn from founders who've scaled ventures in Africa's toughest markets.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Action-Driven Sessions</h3>
+                    <p>Practical playbooks, live deal-room intros, and tactical workshops.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Sponsor Connections</h3>
+                    <p>Meet sponsors and partner programs actively scouting for founders.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Virtual Access</h3>
+                    <p>Join from anywhere — no travel costs, maximum impact.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Speakers Section -->
+    <section class="speakers" id="speakers">
+        <div class="container">
+            <h2 class="text-center">Speakers — Bold Minds, Blunt Talk</h2>
+            <div class="speakers-grid">
+                <!-- Speaker 1 -->
+                <div class="speaker-card">
+                    <div class="speaker-image">Speaker Photo</div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Ngozi Okonjo</h3>
+                        <p class="speaker-role">VC Partner, Future Africa</p>
+                        <p class="speaker-session">Funding Africa's Next Unicorns: What Investors Really Look For</p>
+                        <a href="#" class="btn btn-secondary">Read Synopsis</a>
+                    </div>
+                </div>
+                
+                <!-- Speaker 2 -->
+                <div class="speaker-card">
+                    <div class="speaker-image">Speaker Photo</div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">David McKenzie</h3>
+                        <p class="speaker-role">Founder, TechBuild Africa</p>
+                        <p class="speaker-session">Building Scalable Teams in Fragmented Markets</p>
+                        <a href="#" class="btn btn-secondary">Read Synopsis</a>
+                    </div>
+                </div>
+                
+                <!-- Speaker 3 -->
+                <div class="speaker-card">
+                    <div class="speaker-image">Speaker Photo</div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Amina J. Mohammed</h3>
+                        <p class="speaker-role">CEO, GreenImpact Ventures</p>
+                        <p class="speaker-session">Climate Tech: Africa's $3T Opportunity</p>
+                        <a href="#" class="btn btn-secondary">Read Synopsis</a>
+                    </div>
+                </div>
+                
+                <!-- Speaker 4 -->
+                <div class="speaker-card">
+                    <div class="speaker-image">Speaker Photo</div>
+                    <div class="speaker-info">
+                        <h3 class="speaker-name">Speaker Announced Soon</h3>
+                        <p class="speaker-role">Check back for updates</p>
+                        <p class="speaker-session">More bold thinkers joining our lineup</p>
+                        <a href="#" class="btn btn-secondary">Nominate Speaker</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Agenda Section -->
+    <section class="agenda" id="agenda">
+        <div class="container">
+            <h2 class="text-center">Agenda Highlights</h2>
+            <p class="text-center">October 2, 2025 • All times in UTC (local timezone converter available)</p>
+            
+            <div class="agenda-highlights">
+                <div class="agenda-item">
+                    <div class="agenda-time">09:00 - 10:00</div>
+                    <span class="agenda-type">Keynote</span>
+                    <h3>Opening: Africa's Disruption Decade</h3>
+                    <p>Setting the stage for the day's conversations and opportunities.</p>
+                </div>
+                
+                <div class="agenda-item">
+                    <div class="agenda-time">10:15 - 11:30</div>
+                    <span class="agenda-type">Panel</span>
+                    <h3>Fintech Frontier: Beyond Payments</h3>
+                    <p>Exploring the next wave of financial innovation across the continent.</p>
+                </div>
+                
+                <div class="agenda-item">
+                    <div class="agenda-time">11:45 - 12:45</div>
+                    <span class="agenda-type">Workshop</span>
+                    <h3>Rapid Product Validation</h3>
+                    <p>Hands-on session for testing ideas with real African consumers.</p>
+                </div>
+                
+                <div class="agenda-item">
+                    <div class="agenda-time">14:00 - 15:15</div>
+                    <span class="agenda-type">Fireside Chat</span>
+                    <h3>Scaling Through Regulation</h3>
+                    <p>Founders share how they navigated complex policy environments.</p>
+                </div>
+                
+                <div class="agenda-item">
+                    <div class="agenda-time">15:30 - 16:30</div>
+                    <span class="agenda-type">Office Hours</span>
+                    <h3>VC Matchmaking</h3>
+                    <p>Speed-dating style meetings with active Africa-focused investors.</p>
+                </div>
+                
+                <div class="agenda-item">
+                    <div class="agenda-time">16:45 - 17:30</div>
+                    <span class="agenda-type">Keynote</span>
+                    <h3>Closing: The Action Plan</h3>
+                    <p>Turning insights from the day into concrete next steps.</p>
+                </div>
+            </div>
+            
+            <div class="text-center" style="margin-top: 2rem;">
+                <a href="#" class="btn">View Full Agenda</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Section -->
+    <section class="registration" id="register">
+        <div class="container">
+            <h2 class="text-center">Register for Africa Disrupt Summit 1.0</h2>
+            <p class="text-center">Join 1000+ disruptors on October 2, 2025. Virtual access from anywhere.</p>
+            
+            <div class="registration-form">
+                <form id="summit-registration">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="fullname">Full Name *</label>
+                            <input type="text" id="fullname" name="fullname" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="role">Your Role *</label>
+                            <select id="role" name="role" required>
+                                <option value="">Select your role</option>
+                                <option value="founder">Founder</option>
+                                <option value="vc">VC / Investor</option>
+                                <option value="exec">C-Level Executive</option>
+                                <option value="builder">Operator / Builder</option>
+                                <option value="journalist">Journalist</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="organization">Organization *</label>
+                            <input type="text" id="organization" name="organization" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="country">Country *</label>
+                            <input type="text" id="country" name="country" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="hear-about">How did you hear about us? *</label>
+                            <select id="hear-about" name="hear-about" required>
+                                <option value="">Select an option</option>
+                                <option value="social">Social Media</option>
+                                <option value="referral">Colleague Referral</option>
+                                <option value="newsletter">Newsletter</option>
+                                <option value="search">Search Engine</option>
+                                <option value="press">Press Article</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Areas of Interest (Optional)</label>
+                        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem;">
+                            <label style="display: flex; align-items: center; gap: 0.25rem;">
+                                <input type="checkbox" name="interests" value="fintech"> Fintech
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 0.25rem;">
+                                <input type="checkbox" name="interests" value="climate"> Climate Tech
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 0.25rem;">
+                                <input type="checkbox" name="interests" value="health"> Health Tech
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 0.25rem;">
+                                <input type="checkbox" name="interests" value="agritech"> Agritech
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 0.25rem;">
+                                <input type="checkbox" name="interests" value="web3"> Web3
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 0.25rem;">
+                                <input type="checkbox" name="interests" value="policy"> Policy
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="speaker-application">Interested in speaking at future events?</label>
+                        <select id="speaker-application" name="speaker-application">
+                            <option value="">Select an option</option>
+                            <option value="yes">Yes, I'm interested</option>
+                            <option value="no">Not at this time</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <button type="submit" class="btn" style="width: 100%;">Complete Registration</button>
+                    </div>
+                    
+                    <p style="font-size: 0.8rem; text-align: center; margin-top: 1rem;">
+                        By registering, you agree to our <a href="#">Privacy Policy</a> and consent to receive communications about the summit.
+                    </p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section class="partners" id="sponsors">
+        <div class="container">
+            <h2 class="text-center">Partners & Sponsors</h2>
+            <div class="partners-grid">
+                <div class="partner-logo">Sponsor Logo</div>
+                <div class="partner-logo">Sponsor Logo</div>
+                <div class="partner-logo">Sponsor Logo</div>
+                <div class="partner-logo">Sponsor Logo</div>
+                <div class="partner-logo">Sponsor Logo</div>
+            </div>
+            <div class="text-center" style="margin-top: 2rem;">
+                <a href="#" class="btn btn-secondary">Become a Sponsor</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Africa Disrupt Summit</h3>
+                    <p>Breaking the Old, Building the Bold: Africa's Next Wave of Disruptors.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon">TW</a>
+                        <a href="#" class="social-icon">IN</a>
+                        <a href="#" class="social-icon">LI</a>
+                        <a href="#" class="social-icon">YT</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#speakers">Speakers</a></li>
+                        <li><a href="#agenda">Agenda</a></li>
+                        <li><a href="#sponsors">Sponsors</a></li>
+                        <li><a href="#register">Register</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Code of Conduct</a></li>
+                        <li><a href="#">Accessibility</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Press Kit</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Stay Connected</h3>
+                    <p>Get updates on speakers, sessions, and networking opportunities.</p>
+                    <div class="form-group">
+                        <input type="email" placeholder="Your email address">
+                        <button class="btn" style="width: 100%; margin-top: 0.5rem;">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Africa Disrupt Summit. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Countdown Timer
+        function updateCountdown() {
+            const eventDate = new Date('October 2, 2025 00:00:00').getTime();
+            const now = new Date().getTime();
+            const distance = eventDate - now;
+            
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            document.getElementById('days').innerText = days.toString().padStart(2, '0');
+            document.getElementById('hours').innerText = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').innerText = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').innerText = seconds.toString().padStart(2, '0');
+            
+            if (distance < 0) {
+                clearInterval(countdownTimer);
+                document.getElementById('countdown').innerHTML = "EVENT LIVE NOW";
+            }
+        }
+        
+        // Update countdown every second
+        const countdownTimer = setInterval(updateCountdown, 1000);
+        updateCountdown(); // Initial call
+        
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('show');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    document.querySelector('nav ul').classList.remove('show');
+                }
+            });
+        });
+        
+        // Form submission
+        document.getElementById('summit-registration').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // In a real implementation, you would send the form data to your server
+            // For this demo, we'll just show a success message
+            alert('Thank you for registering! You will receive a confirmation email shortly.');
+            
+            // Reset form
+            this.reset();
+        });
+    </script>
+</body>
+</html>
