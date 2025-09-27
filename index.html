@@ -4,16 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Africa Disrupt Summit 1.0 — Breaking the Old, Building the Bold | Oct 2, 2025</title>
-    <meta name="description" content="Join 1000+ founders, VCs and leaders for Africa Disrupt Summit 1.0 (Oct 2, 2025, virtual). Harsh conversations, practical playbooks, global networks. Register now.">
+    <meta name="description" content="Join Africa's most disruptive thinkers on Oct 2, 2025. Virtual summit for founders, investors, and change-makers.">
     <style>
-        /* CSS Reset and Base Styles */
         :root {
-            --charcoal: #1a1a1a;
-            --electric-amber: #FF8C00;
-            --deep-teal: #008080;
+            --rich-brown: #301807;
+            --warm-beige: #D0AF73;
+            --bg-neutral: #EDE1D2;
             --white: #ffffff;
-            --gray-light: #f5f5f5;
-            --gray-medium: #666666;
+            --dark-charcoal: #1a1a1a;
+            --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
         
         * {
@@ -22,12 +21,17 @@
             box-sizing: border-box;
         }
         
+        html {
+            scroll-behavior: smooth;
+        }
+        
         body {
-            font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
-            background-color: var(--charcoal);
-            color: var(--white);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: var(--bg-neutral);
+            color: var(--rich-brown);
             line-height: 1.6;
             font-size: 16px;
+            overflow-x: hidden;
         }
         
         h1, h2, h3, h4 {
@@ -38,88 +42,112 @@
         }
         
         h1 {
-            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-size: clamp(2.8rem, 6vw, 5rem);
+            background: linear-gradient(135deg, var(--rich-brown) 0%, var(--warm-beige) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
         
         h2 {
-            font-size: clamp(2rem, 4vw, 3rem);
+            font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
         }
         
-        h3 {
-            font-size: clamp(1.5rem, 3vw, 2rem);
-        }
-        
-        p {
-            margin-bottom: 1rem;
-        }
-        
-        a {
-            color: var(--electric-amber);
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-        
-        a:hover {
-            color: var(--white);
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--warm-beige);
+            border-radius: 2px;
         }
         
         .container {
             width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 1rem;
+            padding: 0 2rem;
         }
         
+        /* Modern Button Styles */
         .btn {
-            display: inline-block;
-            padding: 1rem 2rem;
-            background-color: var(--electric-amber);
-            color: var(--charcoal);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.2rem 2.5rem;
+            background: linear-gradient(135deg, var(--rich-brown) 0%, #4a2a0f 100%);
+            color: var(--white);
             font-weight: 700;
             border: none;
-            border-radius: 4px;
+            border-radius: 50px;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: var(--transition);
             text-transform: uppercase;
             letter-spacing: 1px;
             font-size: 0.9rem;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(48, 24, 7, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
         }
         
         .btn:hover {
-            background-color: var(--white);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255, 140, 0, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(48, 24, 7, 0.3);
+        }
+        
+        .btn:hover:before {
+            left: 100%;
         }
         
         .btn-secondary {
-            background-color: transparent;
-            border: 2px solid var(--electric-amber);
-            color: var(--electric-amber);
-        }
-        
-        .btn-secondary:hover {
-            background-color: var(--electric-amber);
-            color: var(--charcoal);
+            background: transparent;
+            border: 2px solid var(--rich-brown);
+            color: var(--rich-brown);
         }
         
         section {
-            padding: 4rem 0;
+            padding: 6rem 0;
         }
         
         .text-center {
             text-align: center;
         }
         
-        /* Header Styles */
+        /* Enhanced Header Styles */
         header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            background-color: rgba(26, 26, 26, 0.95);
+            background-color: rgba(237, 225, 210, 0.95);
             z-index: 1000;
-            padding: 1rem 0;
+            padding: 1.2rem 0;
             backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(208, 175, 115, 0.3);
+            transition: var(--transition);
+        }
+        
+        header.scrolled {
+            padding: 0.8rem 0;
+            box-shadow: 0 5px 20px rgba(48, 24, 7, 0.1);
         }
         
         .header-container {
@@ -129,13 +157,22 @@
         }
         
         .logo {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             font-weight: 800;
-            color: var(--white);
+            color: var(--rich-brown);
+            display: flex;
+            align-items: center;
         }
         
         .logo span {
-            color: var(--electric-amber);
+            color: var(--warm-beige);
+            margin-left: 0.3rem;
+        }
+        
+        .logo:before {
+            content: '✦';
+            margin-right: 0.5rem;
+            color: var(--warm-beige);
         }
         
         nav ul {
@@ -145,386 +182,466 @@
         
         nav li {
             margin-left: 2rem;
+            position: relative;
         }
         
         nav a {
-            color: var(--white);
+            color: var(--rich-brown);
             font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            padding: 0.5rem 0;
+        }
+        
+        nav a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--warm-beige);
+            transition: var(--transition);
+        }
+        
+        nav a:hover {
+            color: var(--warm-beige);
+        }
+        
+        nav a:hover:after {
+            width: 100%;
         }
         
         .mobile-menu-btn {
             display: none;
             background: none;
             border: none;
-            color: var(--white);
+            color: var(--rich-brown);
             font-size: 1.5rem;
             cursor: pointer;
+            z-index: 1001;
         }
         
-        /* Hero Section */
+        /* Enhanced Hero Section with Modern Design */
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            background: linear-gradient(rgba(26, 26, 26, 0.9), rgba(26, 26, 26, 0.9)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%231a1a1a"/><path d="M0,0 L100,100 M100,0 L0,100" stroke="%23333" stroke-width="1"/></svg>');
-            background-size: cover;
-            background-position: center;
+            background: linear-gradient(135deg, var(--bg-neutral) 0%, #f5ebdc 100%);
             position: relative;
             overflow: hidden;
+        }
+        
+        .hero:before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(208, 175, 115, 0.1) 0%, transparent 70%);
+            z-index: 0;
         }
         
         .hero-content {
             max-width: 900px;
             padding: 0 1rem;
+            position: relative;
+            z-index: 1;
         }
         
         .hero h1 {
             margin-bottom: 1.5rem;
-            position: relative;
-        }
-        
-        .glitch {
-            position: relative;
-            display: inline-block;
-        }
-        
-        .glitch::before,
-        .glitch::after {
-            content: attr(data-text);
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-        
-        .glitch::before {
-            left: 2px;
-            text-shadow: -2px 0 red;
-            clip: rect(44px, 450px, 56px, 0);
-            animation: glitch-anim 5s infinite linear alternate-reverse;
-        }
-        
-        .glitch::after {
-            left: -2px;
-            text-shadow: -2px 0 blue;
-            clip: rect(44px, 450px, 56px, 0);
-            animation: glitch-anim2 5s infinite linear alternate-reverse;
-        }
-        
-        @keyframes glitch-anim {
-            0% { clip: rect(42px, 9999px, 44px, 0); }
-            5% { clip: rect(12px, 9999px, 59px, 0); }
-            10% { clip: rect(48px, 9999px, 29px, 0); }
-            15% { clip: rect(42px, 9999px, 73px, 0); }
-            20% { clip: rect(63px, 9999px, 27px, 0); }
-            25% { clip: rect(34px, 9999px, 55px, 0); }
-            30% { clip: rect(86px, 9999px, 73px, 0); }
-            35% { clip: rect(20px, 9999px, 20px, 0); }
-            40% { clip: rect(26px, 9999px, 60px, 0); }
-            45% { clip: rect(25px, 9999px, 66px, 0); }
-            50% { clip: rect(57px, 9999px, 98px, 0); }
-            55% { clip: rect(5px, 9999px, 46px, 0); }
-            60% { clip: rect(82px, 9999px, 31px, 0); }
-            65% { clip: rect(54px, 9999px, 27px, 0); }
-            70% { clip: rect(28px, 9999px, 99px, 0); }
-            75% { clip: rect(45px, 9999px, 69px, 0); }
-            80% { clip: rect(23px, 9999px, 85px, 0); }
-            85% { clip: rect(54px, 9999px, 84px, 0); }
-            90% { clip: rect(45px, 9999px, 47px, 0); }
-            95% { clip: rect(37px, 9999px, 20px, 0); }
-            100% { clip: rect(73px, 9999px, 99px, 0); }
-        }
-        
-        @keyframes glitch-anim2 {
-            0% { clip: rect(65px, 9999px, 100px, 0); }
-            5% { clip: rect(52px, 9999px, 74px, 0); }
-            10% { clip: rect(79px, 9999px, 85px, 0); }
-            15% { clip: rect(75px, 9999px, 5px, 0); }
-            20% { clip: rect(67px, 9999px, 61px, 0); }
-            25% { clip: rect(14px, 9999px, 79px, 0); }
-            30% { clip: rect(1px, 9999px, 66px, 0); }
-            35% { clip: rect(86px, 9999px, 30px, 0); }
-            40% { clip: rect(23px, 9999px, 98px, 0); }
-            45% { clip: rect(85px, 9999px, 72px, 0); }
-            50% { clip: rect(71px, 9999px, 75px, 0); }
-            55% { clip: rect(2px, 9999px, 48px, 0); }
-            60% { clip: rect(30px, 9999px, 16px, 0); }
-            65% { clip: rect(59px, 9999px, 50px, 0); }
-            70% { clip: rect(41px, 9999px, 62px, 0); }
-            75% { clip: rect(2px, 9999px, 82px, 0); }
-            80% { clip: rect(47px, 9999px, 73px, 0); }
-            85% { clip: rect(3px, 9999px, 27px, 0); }
-            90% { clip: rect(26px, 9999px, 55px, 0); }
-            95% { clip: rect(42px, 9999px, 97px, 0); }
-            100% { clip: rect(38px, 9999px, 49px, 0); }
+            line-height: 1.1;
         }
         
         .hero-subhead {
-            font-size: 1.25rem;
-            margin-bottom: 2rem;
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
+            color: var(--rich-brown);
+            opacity: 0.9;
+            font-weight: 500;
         }
         
         .countdown {
             display: flex;
             justify-content: center;
-            gap: 1rem;
-            margin-bottom: 2rem;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
         }
         
         .countdown-item {
             text-align: center;
+            background: rgba(255, 255, 255, 0.7);
+            padding: 1rem;
+            border-radius: 10px;
+            min-width: 90px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 5px 15px rgba(48, 24, 7, 0.1);
         }
         
         .countdown-number {
-            font-size: 2rem;
+            font-size: 2.2rem;
             font-weight: 800;
-            color: var(--electric-amber);
+            color: var(--rich-brown);
             display: block;
+            line-height: 1;
         }
         
         .countdown-label {
             font-size: 0.8rem;
             text-transform: uppercase;
             letter-spacing: 1px;
+            color: var(--rich-brown);
+            opacity: 0.7;
+            margin-top: 0.5rem;
         }
         
-        /* Stats Section */
+        /* Enhanced Stats Section */
         .stats {
-            background-color: var(--deep-teal);
-            padding: 2rem 0;
+            background-color: var(--rich-brown);
+            padding: 3rem 0;
+            position: relative;
+        }
+        
+        .stats:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" opacity="0.05"><circle cx="50" cy="50" r="2"/></svg>');
         }
         
         .stats-container {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
         }
         
         .stat-item {
             text-align: center;
-            padding: 1rem;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            transition: var(--transition);
+        }
+        
+        .stat-item:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.1);
         }
         
         .stat-number {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             font-weight: 800;
             display: block;
-            color: var(--electric-amber);
+            color: var(--warm-beige);
+            line-height: 1;
+            margin-bottom: 0.5rem;
         }
         
         .stat-label {
             font-size: 1rem;
             text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--bg-neutral);
+        }
+        
+        /* Enhanced Conveners Section */
+        .conveners {
+            background-color: var(--bg-neutral);
+            position: relative;
+        }
+        
+        .conveners:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" opacity="0.03"><path d="M0,0 L100,100 M100,0 L0,100" stroke="%23301807"/></svg>');
+        }
+        
+        .conveners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+        
+        .convener-card {
+            background-color: var(--white);
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(48, 24, 7, 0.1);
+            text-align: center;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .convener-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--warm-beige);
+        }
+        
+        .convener-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(48, 24, 7, 0.15);
+        }
+        
+        .convener-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--warm-beige) 0%, var(--rich-brown) 100%);
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 3.5rem;
+            box-shadow: 0 5px 15px rgba(48, 24, 7, 0.2);
+        }
+        
+        .convener-name {
+            color: var(--rich-brown);
+            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+        }
+        
+        .convener-post {
+            color: var(--warm-beige);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+            text-transform: uppercase;
             letter-spacing: 1px;
         }
         
-        /* Why Attend Section */
-        .why-attend {
-            background-color: var(--charcoal);
+        .convener-bio {
+            color: var(--rich-brown);
+            text-align: left;
+            line-height: 1.7;
         }
         
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        
-        .benefit-card {
-            background-color: rgba(255, 255, 255, 0.05);
-            padding: 2rem;
-            border-radius: 8px;
-            border-left: 4px solid var(--electric-amber);
-        }
-        
-        .benefit-card h3 {
-            color: var(--electric-amber);
+        .convener-bio p {
             margin-bottom: 1rem;
         }
         
-        /* Speakers Section */
+        /* Enhanced Speakers Section */
         .speakers {
-            background-color: #222;
+            background-color: var(--white);
+            position: relative;
+        }
+        
+        .speakers:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background: var(--bg-neutral);
+            z-index: 0;
         }
         
         .speakers-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+            position: relative;
+            z-index: 1;
         }
         
         .speaker-card {
-            background-color: rgba(255, 255, 255, 0.05);
-            border-radius: 8px;
+            background-color: var(--white);
+            border-radius: 15px;
             overflow: hidden;
-            transition: transform 0.3s ease;
+            transition: var(--transition);
+            box-shadow: 0 10px 25px rgba(48, 24, 7, 0.1);
+            position: relative;
         }
         
         .speaker-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(48, 24, 7, 0.15);
         }
         
         .speaker-image {
             width: 100%;
             height: 250px;
-            background-color: var(--gray-medium);
+            background: linear-gradient(135deg, var(--warm-beige) 0%, var(--rich-brown) 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--gray-light);
+            color: var(--white);
+            font-size: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .speaker-image:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" opacity="0.1"><circle cx="50" cy="50" r="40" fill="none" stroke="white" stroke-width="2"/></svg>');
         }
         
         .speaker-info {
-            padding: 1.5rem;
+            padding: 2rem;
         }
         
         .speaker-name {
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             margin-bottom: 0.5rem;
+            color: var(--rich-brown);
         }
         
-        .speaker-role {
-            color: var(--electric-amber);
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-        }
-        
-        .speaker-session {
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-            color: var(--gray-light);
-        }
-        
-        /* Agenda Section */
-        .agenda {
-            background-color: var(--charcoal);
-        }
-        
-        .agenda-highlights {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        
-        .agenda-item {
-            background-color: rgba(255, 255, 255, 0.05);
-            padding: 1.5rem;
-            border-radius: 8px;
-        }
-        
-        .agenda-time {
-            color: var(--electric-amber);
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-        
-        .agenda-type {
-            display: inline-block;
-            padding: 0.25rem 0.5rem;
-            background-color: var(--deep-teal);
-            border-radius: 4px;
-            font-size: 0.8rem;
-            margin-bottom: 1rem;
-        }
-        
-        /* Registration Section */
-        .registration {
-            background-color: #222;
-            padding: 4rem 0;
-        }
-        
-        .registration-form {
-            max-width: 600px;
-            margin: 0 auto;
-            background-color: rgba(255, 255, 255, 0.05);
-            padding: 2rem;
-            border-radius: 8px;
-        }
-        
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-        
-        label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
-        
-        input, select, textarea {
-            width: 100%;
-            padding: 0.75rem;
-            background-color: rgba(255, 255, 255, 0.1);
-            border: 1px solid var(--gray-medium);
-            border-radius: 4px;
-            color: var(--white);
+        .speaker-topic {
+            color: var(--warm-beige);
             font-size: 1rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            line-height: 1.4;
         }
         
-        input:focus, select:focus, textarea:focus {
-            outline: none;
-            border-color: var(--electric-amber);
+        .speaker-bio {
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            color: var(--rich-brown);
+            line-height: 1.6;
         }
         
-        .form-row {
-            display: flex;
-            gap: 1rem;
+        .speaker-bio p {
+            margin-bottom: 1rem;
         }
         
-        .form-row .form-group {
-            flex: 1;
+        /* Enhanced Sponsors Section */
+        .sponsors {
+            background-color: var(--rich-brown);
+            padding: 5rem 0;
+            position: relative;
         }
         
-        /* Partners Section */
-        .partners {
-            background-color: var(--charcoal);
-            padding: 3rem 0;
+        .sponsors h2 {
+            color: var(--bg-neutral);
         }
         
-        .partners-grid {
+        .sponsors h2:after {
+            background: var(--warm-beige);
+        }
+        
+        .sponsors-grid {
             display: flex;
             justify-content: center;
             align-items: center;
             flex-wrap: wrap;
-            gap: 2rem;
-            margin-top: 2rem;
+            gap: 4rem;
+            margin-top: 3rem;
         }
         
-        .partner-logo {
-            height: 60px;
-            opacity: 0.7;
-            transition: opacity 0.3s ease;
+        .sponsor-card {
+            text-align: center;
+            max-width: 250px;
+            transition: var(--transition);
         }
         
-        .partner-logo:hover {
-            opacity: 1;
+        .sponsor-card:hover {
+            transform: translateY(-5px);
         }
         
-        /* Footer */
+        .sponsor-logo {
+            height: 100px;
+            width: auto;
+            margin-bottom: 1.5rem;
+            background-color: var(--bg-neutral);
+            padding: 1.5rem;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--rich-brown);
+            font-weight: bold;
+            font-size: 1.2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .sponsor-name {
+            color: var(--bg-neutral);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            font-size: 1.3rem;
+        }
+        
+        .sponsor-bio {
+            color: var(--warm-beige);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+        
+        .sponsor-link {
+            color: var(--bg-neutral);
+            font-size: 0.9rem;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: var(--transition);
+        }
+        
+        .sponsor-link:hover {
+            border-bottom: 1px solid var(--bg-neutral);
+        }
+        
+        /* Enhanced Footer */
         footer {
-            background-color: #111;
-            padding: 3rem 0 1rem;
+            background-color: var(--rich-brown);
+            padding: 4rem 0 1.5rem;
+            color: var(--bg-neutral);
+            position: relative;
         }
         
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
+            gap: 3rem;
+            margin-bottom: 3rem;
         }
         
         .footer-section h3 {
-            color: var(--electric-amber);
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
+            color: var(--warm-beige);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .footer-section h3:after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--warm-beige);
         }
         
         .footer-links {
@@ -532,47 +649,123 @@
         }
         
         .footer-links li {
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.8rem;
         }
         
         .footer-links a {
-            color: var(--gray-light);
+            color: var(--bg-neutral);
+            transition: var(--transition);
+            text-decoration: none;
         }
         
         .footer-links a:hover {
-            color: var(--electric-amber);
+            color: var(--warm-beige);
+            padding-left: 5px;
         }
         
         .social-links {
             display: flex;
             gap: 1rem;
+            margin-top: 1.5rem;
         }
         
         .social-icon {
-            display: inline-block;
+            display: inline-flex;
             width: 40px;
             height: 40px;
-            background-color: var(--gray-medium);
+            background-color: rgba(208, 175, 115, 0.2);
             border-radius: 50%;
-            display: flex;
             align-items: center;
             justify-content: center;
-            transition: background-color 0.3s ease;
+            transition: var(--transition);
+            color: var(--bg-neutral);
+            text-decoration: none;
         }
         
         .social-icon:hover {
-            background-color: var(--electric-amber);
+            background-color: var(--warm-beige);
+            color: var(--rich-brown);
+            transform: translateY(-3px);
+        }
+        
+        .subscribe-form {
+            display: flex;
+            margin-top: 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .subscribe-input {
+            flex: 1;
+            padding: 1rem 1.5rem;
+            border: none;
+            background: transparent;
+            color: var(--bg-neutral);
+            font-size: 1rem;
+        }
+        
+        .subscribe-input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .subscribe-btn {
+            padding: 0 1.8rem;
+            background: var(--warm-beige);
+            color: var(--rich-brown);
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .subscribe-btn:hover {
+            background: var(--bg-neutral);
+        }
+        
+        .subscribe-message {
+            margin-top: 0.8rem;
+            font-size: 0.9rem;
+            display: none;
         }
         
         .footer-bottom {
             text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid var(--gray-medium);
-            color: var(--gray-medium);
+            padding-top: 2.5rem;
+            border-top: 1px solid rgba(208, 175, 115, 0.3);
+            color: var(--warm-beige);
             font-size: 0.9rem;
         }
         
         /* Responsive Styles */
+        @media (max-width: 968px) {
+            .container {
+                padding: 0 1.5rem;
+            }
+            
+            section {
+                padding: 4rem 0;
+            }
+            
+            h1 {
+                font-size: clamp(2.5rem, 7vw, 4rem);
+            }
+            
+            h2 {
+                font-size: clamp(2rem, 5vw, 3rem);
+            }
+            
+            .conveners-grid, .speakers-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
         @media (max-width: 768px) {
             .mobile-menu-btn {
                 display: block;
@@ -580,13 +773,16 @@
             
             nav ul {
                 display: none;
-                position: absolute;
-                top: 100%;
+                position: fixed;
+                top: 0;
                 left: 0;
                 width: 100%;
-                background-color: var(--charcoal);
+                height: 100vh;
+                background: var(--rich-brown);
                 flex-direction: column;
-                padding: 1rem 0;
+                padding: 5rem 2rem 2rem;
+                z-index: 999;
+                text-align: center;
             }
             
             nav ul.show {
@@ -595,55 +791,128 @@
             
             nav li {
                 margin: 0;
-                text-align: center;
-                padding: 0.5rem 0;
+                padding: 1rem 0;
+            }
+            
+            nav a {
+                color: var(--bg-neutral);
+                font-size: 1.2rem;
+            }
+            
+            .countdown {
+                gap: 0.8rem;
+            }
+            
+            .countdown-item {
+                min-width: 70px;
+                padding: 0.8rem 0.5rem;
+            }
+            
+            .countdown-number {
+                font-size: 1.8rem;
+            }
+            
+            .stats-container {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .sponsors-grid {
+                flex-direction: column;
+                gap: 3rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+            
+            .subscribe-form {
+                flex-direction: column;
+                border-radius: 10px;
+            }
+            
+            .subscribe-input {
+                border-radius: 10px 10px 0 0;
+                margin-bottom: 0;
+            }
+            
+            .subscribe-btn {
+                padding: 1rem;
+                border-radius: 0 0 10px 10px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 1rem;
+            }
+            
+            section {
+                padding: 3rem 0;
+            }
+            
+            .hero {
+                min-height: 90vh;
             }
             
             .countdown {
                 gap: 0.5rem;
             }
             
+            .countdown-item {
+                min-width: 60px;
+                padding: 0.6rem 0.3rem;
+            }
+            
             .countdown-number {
                 font-size: 1.5rem;
             }
             
-            .stats-container {
-                flex-direction: column;
-                gap: 1rem;
+            .countdown-label {
+                font-size: 0.7rem;
             }
-            
-            .form-row {
-                flex-direction: column;
-                gap: 0;
+        }
+        
+        /* Animation keyframes */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
             }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in {
+            animation: fadeInUp 0.8s ease forwards;
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
+    <!-- Enhanced Header -->
+    <header id="header">
         <div class="container header-container">
             <div class="logo">Africa <span>Disrupt</span></div>
             <button class="mobile-menu-btn">☰</button>
             <nav>
                 <ul>
-                    <li><a href="#about">About</a></li>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#conveners">Conveners</a></li>
                     <li><a href="#speakers">Speakers</a></li>
-                    <li><a href="#agenda">Agenda</a></li>
                     <li><a href="#sponsors">Sponsors</a></li>
-                    <li><a href="#register" class="btn">Register Now</a></li>
+                    <li><a href="https://luma.com/w972y4f6" class="btn" target="_blank">Register Now</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Enhanced Hero Section -->
     <section class="hero" id="home">
-        <div class="hero-content">
-            <h1>
-                <span class="glitch" data-text="BREAK THE OLD.">BREAK THE OLD.</span><br>
-                <span class="glitch" data-text="BUILD THE BOLD.">BUILD THE BOLD.</span>
-            </h1>
+        <div class="hero-content fade-in">
+            <h1>BREAK THE OLD.<br>BUILD THE BOLD.</h1>
             <p class="hero-subhead">Raw conversations. Actionable playbooks. Global networks — all in one virtual day.</p>
             
             <div class="countdown">
@@ -665,293 +934,128 @@
                 </div>
             </div>
             
-            <a href="#register" class="btn">Register Now</a>
+            <a href="https://luma.com/w972y4f6" class="btn" target="_blank">Secure Your Spot Now</a>
         </div>
     </section>
 
-    <!-- Stats Section -->
+    <!-- Enhanced Stats Section -->
     <section class="stats">
         <div class="container stats-container">
-            <div class="stat-item">
+            <div class="stat-item fade-in">
                 <span class="stat-number">1000+</span>
                 <span class="stat-label">Disruptors</span>
             </div>
-            <div class="stat-item">
-                <span class="stat-number">20+</span>
+            <div class="stat-item fade-in">
+                <span class="stat-number">7+</span>
                 <span class="stat-label">Global Speakers</span>
             </div>
-            <div class="stat-item">
+            <div class="stat-item fade-in">
                 <span class="stat-number">1</span>
                 <span class="stat-label">Virtual Day</span>
             </div>
-            <div class="stat-item">
-                <span class="stat-number">10+</span>
+            <div class="stat-item fade-in">
+                <span class="stat-number">5+</span>
                 <span class="stat-label">Action Sessions</span>
             </div>
         </div>
     </section>
 
-    <!-- Why Attend Section -->
-    <section class="why-attend" id="about">
+    <!-- Enhanced Conveners Section -->
+    <section class="conveners" id="conveners">
         <div class="container">
-            <h2 class="text-center">Why Attend Africa Disrupt Summit 1.0</h2>
-            <div class="benefits-grid">
-                <div class="benefit-card">
-                    <h3>Harsh, Raw Conversations</h3>
-                    <p>No surface-level platitudes — just real talk that sparks tangible change.</p>
+            <h2>Meet The Conveners</h2>
+            <div class="conveners-grid">
+                <div class="convener-card fade-in">
+                    <div class="convener-image">👤</div>
+                    <h3 class="convener-name">Bada Muhammad Aluthaimeen</h3>
+                    <p class="convener-post">Convener, Africa Disrupt Summit 1.0</p>
+                    <div class="convener-bio">
+                        <p>Bada Muhammad Aluthaimeen — known as "Badabytes" — is not in the business of hype; he's in the business of building. A Digital Marketer, Strategist, and Entrepreneur, he is obsessed with tearing down the culture of shortcuts and replacing it with systems that actually work.</p>
+                        <p>As the Founder & CEO of Al-Ameen Spark, he architects digital ecosystems that turn brands, startups, and communities into growth machines — strategies that don't just look good on slides but deliver results that can't be ignored.</p>
+                    </div>
                 </div>
-                <div class="benefit-card">
-                    <h3>Global Network</h3>
-                    <p>Connect with 1000+ disruptors and investors from across the globe.</p>
-                </div>
-                <div class="benefit-card">
-                    <h3>Battle-Tested Insights</h3>
-                    <p>Learn from founders who've scaled ventures in Africa's toughest markets.</p>
-                </div>
-                <div class="benefit-card">
-                    <h3>Action-Driven Sessions</h3>
-                    <p>Practical playbooks, live deal-room intros, and tactical workshops.</p>
-                </div>
-                <div class="benefit-card">
-                    <h3>Sponsor Connections</h3>
-                    <p>Meet sponsors and partner programs actively scouting for founders.</p>
-                </div>
-                <div class="benefit-card">
-                    <h3>Virtual Access</h3>
-                    <p>Join from anywhere — no travel costs, maximum impact.</p>
+                
+                <div class="convener-card fade-in">
+                    <div class="convener-image">👤</div>
+                    <h3 class="convener-name">Odedeyi Nafisat</h3>
+                    <p class="convener-post">Co-Convener, Africa Disrupt Summit 1.0</p>
+                    <div class="convener-bio">
+                        <p>Odedeyi Nafisat is the Chief Operating Officer of Al-Ameen Spark, where she drives execution, systems, and team alignment to turn bold strategies into tangible results.</p>
+                        <p>As the Co-Convener of Africa Disrupt Summit 1.0, she stands at the forefront of challenging Africa's culture of shortcuts, pushing for innovation, structure, and real impact over hype.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Speakers Section -->
+    <!-- Enhanced Speakers Section -->
     <section class="speakers" id="speakers">
         <div class="container">
-            <h2 class="text-center">Speakers — Bold Minds, Blunt Talk</h2>
+            <h2>Featured Speakers</h2>
             <div class="speakers-grid">
-                <!-- Speaker 1 -->
-                <div class="speaker-card">
-                    <div class="speaker-image">Speaker Photo</div>
+                <div class="speaker-card fade-in">
+                    <div class="speaker-image">👤</div>
                     <div class="speaker-info">
-                        <h3 class="speaker-name">Ngozi Okonjo</h3>
-                        <p class="speaker-role">VC Partner, Future Africa</p>
-                        <p class="speaker-session">Funding Africa's Next Unicorns: What Investors Really Look For</p>
-                        <a href="#" class="btn btn-secondary">Read Synopsis</a>
+                        <h3 class="speaker-name">Dr. Osagie Bill Aigbogun</h3>
+                        <p class="speaker-topic">Finance and Strategic Leadership: Driving Africa's Next Wave of Disruption</p>
+                        <div class="speaker-bio">
+                            <p>Dr. Osagie Bill Aigbogun (FCCA) is an accountant with over fifteen years experience in practice and industry. He is a chartered accountant with the ACCA holding a fellow member position with the institute.</p>
+                            <p>His professional experience cuts across several industries including consulting, energy, oil and gas, law, education, pharmaceuticals, creatives, automobiles, telecommunication and currently technology.</p>
+                        </div>
                     </div>
                 </div>
                 
-                <!-- Speaker 2 -->
-                <div class="speaker-card">
-                    <div class="speaker-image">Speaker Photo</div>
+                <!-- Additional speaker placeholders with enhanced design -->
+                <div class="speaker-card fade-in">
+                    <div class="speaker-image">👤</div>
                     <div class="speaker-info">
-                        <h3 class="speaker-name">David McKenzie</h3>
-                        <p class="speaker-role">Founder, TechBuild Africa</p>
-                        <p class="speaker-session">Building Scalable Teams in Fragmented Markets</p>
-                        <a href="#" class="btn btn-secondary">Read Synopsis</a>
+                        <h3 class="speaker-name">More Speakers</h3>
+                        <p class="speaker-topic">Additional topics to be announced</p>
+                        <div class="speaker-bio">
+                            <p>We're curating an exceptional lineup of disruptors, innovators, and thought leaders who will share their insights and experiences at Africa Disrupt Summit 1.0.</p>
+                            <p>Check back soon for more speaker announcements.</p>
+                        </div>
                     </div>
                 </div>
                 
-                <!-- Speaker 3 -->
-                <div class="speaker-card">
-                    <div class="speaker-image">Speaker Photo</div>
+                <div class="speaker-card fade-in">
+                    <div class="speaker-image">👤</div>
                     <div class="speaker-info">
-                        <h3 class="speaker-name">Amina J. Mohammed</h3>
-                        <p class="speaker-role">CEO, GreenImpact Ventures</p>
-                        <p class="speaker-session">Climate Tech: Africa's $3T Opportunity</p>
-                        <a href="#" class="btn btn-secondary">Read Synopsis</a>
-                    </div>
-                </div>
-                
-                <!-- Speaker 4 -->
-                <div class="speaker-card">
-                    <div class="speaker-image">Speaker Photo</div>
-                    <div class="speaker-info">
-                        <h3 class="speaker-name">Speaker Announced Soon</h3>
-                        <p class="speaker-role">Check back for updates</p>
-                        <p class="speaker-session">More bold thinkers joining our lineup</p>
-                        <a href="#" class="btn btn-secondary">Nominate Speaker</a>
+                        <h3 class="speaker-name">More Speakers</h3>
+                        <p class="speaker-topic">Additional topics to be announced</p>
+                        <div class="speaker-bio">
+                            <p>We're curating an exceptional lineup of disruptors, innovators, and thought leaders who will share their insights and experiences at Africa Disrupt Summit 1.0.</p>
+                            <p>Check back soon for more speaker announcements.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Agenda Section -->
-    <section class="agenda" id="agenda">
+    <!-- Enhanced Sponsors Section -->
+    <section class="sponsors" id="sponsors">
         <div class="container">
-            <h2 class="text-center">Agenda Highlights</h2>
-            <p class="text-center">October 2, 2025 • All times in UTC (local timezone converter available)</p>
-            
-            <div class="agenda-highlights">
-                <div class="agenda-item">
-                    <div class="agenda-time">09:00 - 10:00</div>
-                    <span class="agenda-type">Keynote</span>
-                    <h3>Opening: Africa's Disruption Decade</h3>
-                    <p>Setting the stage for the day's conversations and opportunities.</p>
+            <h2>Our Sponsors</h2>
+            <div class="sponsors-grid">
+                <div class="sponsor-card fade-in">
+                    <div class="sponsor-logo">Al-Ameen Spark Logo</div>
+                    <h3 class="sponsor-name">Al-Ameen Spark</h3>
+                    <p class="sponsor-bio">Driving digital transformation and growth across Africa</p>
+                    <a href="#" class="sponsor-link">Follow on LinkedIn</a>
                 </div>
                 
-                <div class="agenda-item">
-                    <div class="agenda-time">10:15 - 11:30</div>
-                    <span class="agenda-type">Panel</span>
-                    <h3>Fintech Frontier: Beyond Payments</h3>
-                    <p>Exploring the next wave of financial innovation across the continent.</p>
+                <div class="sponsor-card fade-in">
+                    <div class="sponsor-logo">Ilm Nexus Logo</div>
+                    <h3 class="sponsor-name">Ilm Nexus</h3>
+                    <p class="sponsor-bio">Connecting knowledge seekers with educational opportunities</p>
+                    <a href="#" class="sponsor-link">Follow on LinkedIn</a>
                 </div>
-                
-                <div class="agenda-item">
-                    <div class="agenda-time">11:45 - 12:45</div>
-                    <span class="agenda-type">Workshop</span>
-                    <h3>Rapid Product Validation</h3>
-                    <p>Hands-on session for testing ideas with real African consumers.</p>
-                </div>
-                
-                <div class="agenda-item">
-                    <div class="agenda-time">14:00 - 15:15</div>
-                    <span class="agenda-type">Fireside Chat</span>
-                    <h3>Scaling Through Regulation</h3>
-                    <p>Founders share how they navigated complex policy environments.</p>
-                </div>
-                
-                <div class="agenda-item">
-                    <div class="agenda-time">15:30 - 16:30</div>
-                    <span class="agenda-type">Office Hours</span>
-                    <h3>VC Matchmaking</h3>
-                    <p>Speed-dating style meetings with active Africa-focused investors.</p>
-                </div>
-                
-                <div class="agenda-item">
-                    <div class="agenda-time">16:45 - 17:30</div>
-                    <span class="agenda-type">Keynote</span>
-                    <h3>Closing: The Action Plan</h3>
-                    <p>Turning insights from the day into concrete next steps.</p>
-                </div>
-            </div>
-            
-            <div class="text-center" style="margin-top: 2rem;">
-                <a href="#" class="btn">View Full Agenda</a>
             </div>
         </div>
     </section>
 
-    <!-- Registration Section -->
-    <section class="registration" id="register">
-        <div class="container">
-            <h2 class="text-center">Register for Africa Disrupt Summit 1.0</h2>
-            <p class="text-center">Join 1000+ disruptors on October 2, 2025. Virtual access from anywhere.</p>
-            
-            <div class="registration-form">
-                <form id="summit-registration">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="fullname">Full Name *</label>
-                            <input type="text" id="fullname" name="fullname" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email Address *</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                    </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="role">Your Role *</label>
-                            <select id="role" name="role" required>
-                                <option value="">Select your role</option>
-                                <option value="founder">Founder</option>
-                                <option value="vc">VC / Investor</option>
-                                <option value="exec">C-Level Executive</option>
-                                <option value="builder">Operator / Builder</option>
-                                <option value="journalist">Journalist</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="organization">Organization *</label>
-                            <input type="text" id="organization" name="organization" required>
-                        </div>
-                    </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="country">Country *</label>
-                            <input type="text" id="country" name="country" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="hear-about">How did you hear about us? *</label>
-                            <select id="hear-about" name="hear-about" required>
-                                <option value="">Select an option</option>
-                                <option value="social">Social Media</option>
-                                <option value="referral">Colleague Referral</option>
-                                <option value="newsletter">Newsletter</option>
-                                <option value="search">Search Engine</option>
-                                <option value="press">Press Article</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label>Areas of Interest (Optional)</label>
-                        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem;">
-                            <label style="display: flex; align-items: center; gap: 0.25rem;">
-                                <input type="checkbox" name="interests" value="fintech"> Fintech
-                            </label>
-                            <label style="display: flex; align-items: center; gap: 0.25rem;">
-                                <input type="checkbox" name="interests" value="climate"> Climate Tech
-                            </label>
-                            <label style="display: flex; align-items: center; gap: 0.25rem;">
-                                <input type="checkbox" name="interests" value="health"> Health Tech
-                            </label>
-                            <label style="display: flex; align-items: center; gap: 0.25rem;">
-                                <input type="checkbox" name="interests" value="agritech"> Agritech
-                            </label>
-                            <label style="display: flex; align-items: center; gap: 0.25rem;">
-                                <input type="checkbox" name="interests" value="web3"> Web3
-                            </label>
-                            <label style="display: flex; align-items: center; gap: 0.25rem;">
-                                <input type="checkbox" name="interests" value="policy"> Policy
-                            </label>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="speaker-application">Interested in speaking at future events?</label>
-                        <select id="speaker-application" name="speaker-application">
-                            <option value="">Select an option</option>
-                            <option value="yes">Yes, I'm interested</option>
-                            <option value="no">Not at this time</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <button type="submit" class="btn" style="width: 100%;">Complete Registration</button>
-                    </div>
-                    
-                    <p style="font-size: 0.8rem; text-align: center; margin-top: 1rem;">
-                        By registering, you agree to our <a href="#">Privacy Policy</a> and consent to receive communications about the summit.
-                    </p>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Partners Section -->
-    <section class="partners" id="sponsors">
-        <div class="container">
-            <h2 class="text-center">Partners & Sponsors</h2>
-            <div class="partners-grid">
-                <div class="partner-logo">Sponsor Logo</div>
-                <div class="partner-logo">Sponsor Logo</div>
-                <div class="partner-logo">Sponsor Logo</div>
-                <div class="partner-logo">Sponsor Logo</div>
-                <div class="partner-logo">Sponsor Logo</div>
-            </div>
-            <div class="text-center" style="margin-top: 2rem;">
-                <a href="#" class="btn btn-secondary">Become a Sponsor</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
+    <!-- Enhanced Footer -->
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -970,11 +1074,10 @@
                     <h3>Quick Links</h3>
                     <ul class="footer-links">
                         <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About</a></li>
+                        <li><a href="#conveners">Conveners</a></li>
                         <li><a href="#speakers">Speakers</a></li>
-                        <li><a href="#agenda">Agenda</a></li>
                         <li><a href="#sponsors">Sponsors</a></li>
-                        <li><a href="#register">Register</a></li>
+                        <li><a href="https://luma.com/w972y4f6" target="_blank">Register</a></li>
                     </ul>
                 </div>
                 
@@ -992,10 +1095,11 @@
                 <div class="footer-section">
                     <h3>Stay Connected</h3>
                     <p>Get updates on speakers, sessions, and networking opportunities.</p>
-                    <div class="form-group">
-                        <input type="email" placeholder="Your email address">
-                        <button class="btn" style="width: 100%; margin-top: 0.5rem;">Subscribe</button>
-                    </div>
+                    <form class="subscribe-form" id="subscribe-form">
+                        <input type="email" class="subscribe-input" placeholder="Your email address" required>
+                        <button type="submit" class="subscribe-btn">Subscribe</button>
+                    </form>
+                    <div class="subscribe-message" id="subscribe-message"></div>
                 </div>
             </div>
             
@@ -1006,7 +1110,7 @@
     </footer>
 
     <script>
-        // Countdown Timer
+        // Enhanced Countdown Timer
         function updateCountdown() {
             const eventDate = new Date('October 2, 2025 00:00:00').getTime();
             const now = new Date().getTime();
@@ -1024,20 +1128,31 @@
             
             if (distance < 0) {
                 clearInterval(countdownTimer);
-                document.getElementById('countdown').innerHTML = "EVENT LIVE NOW";
+                document.querySelector('.countdown').innerHTML = "<div class='countdown-item'><span class='countdown-number'>EVENT</span><span class='countdown-label'>LIVE NOW</span></div>";
             }
         }
         
         // Update countdown every second
         const countdownTimer = setInterval(updateCountdown, 1000);
-        updateCountdown(); // Initial call
+        updateCountdown();
         
-        // Mobile Menu Toggle
+        // Enhanced Mobile Menu Toggle
         document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            this.textContent = this.textContent === '☰' ? '✕' : '☰';
             document.querySelector('nav ul').classList.toggle('show');
         });
         
-        // Smooth scrolling for anchor links
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Enhanced smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -1053,21 +1168,71 @@
                     });
                     
                     // Close mobile menu if open
-                    document.querySelector('nav ul').classList.remove('show');
+                    if (document.querySelector('nav ul').classList.contains('show')) {
+                        document.querySelector('.mobile-menu-btn').textContent = '☰';
+                        document.querySelector('nav ul').classList.remove('show');
+                    }
                 }
             });
         });
         
-        // Form submission
-        document.getElementById('summit-registration').addEventListener('submit', function(e) {
+        // Enhanced Subscription Form Handling
+        document.getElementById('subscribe-form').addEventListener('submit', async function(e) {
             e.preventDefault();
             
-            // In a real implementation, you would send the form data to your server
-            // For this demo, we'll just show a success message
-            alert('Thank you for registering! You will receive a confirmation email shortly.');
+            const form = this;
+            const emailInput = form.querySelector('.subscribe-input');
+            const messageDiv = document.getElementById('subscribe-message');
+            const submitBtn = form.querySelector('.subscribe-btn');
             
-            // Reset form
-            this.reset();
+            const originalBtnText = submitBtn.textContent;
+            submitBtn.textContent = 'Subscribing...';
+            submitBtn.disabled = true;
+            
+            try {
+                // Simulate API call to Netlify function
+                await new Promise(resolve => setTimeout(resolve, 1500));
+                
+                messageDiv.textContent = 'Thanks for subscribing! You\'ll receive updates shortly.';
+                messageDiv.style.color = '#D0AF73';
+                messageDiv.style.display = 'block';
+                
+                emailInput.value = '';
+                
+                setTimeout(() => {
+                    messageDiv.style.display = 'none';
+                }, 5000);
+            } catch (error) {
+                messageDiv.textContent = 'Subscription failed. Please try again.';
+                messageDiv.style.color = '#ff6b6b';
+                messageDiv.style.display = 'block';
+            } finally {
+                submitBtn.textContent = originalBtnText;
+                submitBtn.disabled = false;
+            }
+        });
+        
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all elements with fade-in class
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            fadeElements.forEach(el => {
+                el.style.opacity = '0';
+                observer.observe(el);
+            });
         });
     </script>
 </body>
